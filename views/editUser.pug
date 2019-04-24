@@ -1,0 +1,10 @@
+html
+    include includes/header
+    form(method='post', action='/edit')#form Edit User
+        input(type='hidden', name='userid', value=user.id)
+        input(type='text', name='username', placeholder='User ID', required, value=user.id)
+        input(type='text', name='firstname', placeholder='First Name', required, value=user.firstname)
+        input(type='text', name='lastname', placeholder='Last Name', required, value=user.lastname)
+        input(type='text', name='email', placeholder='Email Address', required, value=user.email)
+        input(type='number', name='age', placeholder='Age', required, value=user.age)
+        input(type='submit', value='Save Changes').button

@@ -1,0 +1,143 @@
+html, body {
+    font-family: sans-serif;
+    padding: 5px;
+    margin: 0;
+    background-color: #D7CEC7;
+}
+
+.home {
+    font-size: 30px;
+    color: #000;
+}
+
+#userListing {
+    display: block;
+    background-color: #fff;
+
+    width: 50%;
+    min-height: 100%;
+
+    margin: auto;
+    padding: 10px;
+    border-radius: 20px;
+
+    font-family: 'Poppins', sans-serif;
+}
+
+#successMessage {
+    color: #28E070;
+}
+
+#errorMessage {
+    color: #E74C3C;
+}
+
+.user, .add {
+    width: 325px;
+    height: 100px;
+
+    padding: 10px;
+    margin: 10px 0;
+
+    border: 2px dashed #808080;
+    background-color: #ECF0F1;
+    transition: background-color 200ms;
+
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+}
+
+.user p {
+    margin: 0;
+    font-size: 15px;
+    display: inline;
+}
+
+.user .userHead h4 {
+    margin: 0;
+}
+
+.user .userDetails {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.userAction {
+    text-align: right;
+    position: absolute;
+
+    margin: 5px;
+    bottom: 0;
+    right: 0;
+}
+
+.userAction i {
+    color: #fff;
+
+    padding: 6px;
+    margin: 0 5px;
+    font-size: 15px;
+
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.fa-trash {
+    background-color: #F04141;
+}
+
+.fa-pen {
+    background-color: #0CD1E8;
+}
+
+.add {
+    background-color: #fafeff;
+
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+
+    display: block;
+    color: #000;
+}
+
+.user:hover, .add:hover {
+    background-color: #BDC3C7;
+}
+
+.add:hover {
+    background-color: #ECF0F1;
+}
+
+#form {
+    background-color: #ECF0F1;
+    margin: auto;
+    padding: 10px;
+
+    border-radius: 20px;
+    box-shadow: 15px 15px 15px #808080;
+    text-align: center;
+    width: 40%;
+    font-family: 'Poppins', sans-serif;
+}
+
+#form input {
+    display: block;
+    padding: 5px;
+    margin: 5px auto;
+    font-family: 'Poppins', sans-serif;
+}
+
+#form .button {
+    background-color: #fff;
+    transition: background-color 200ms;
+
+    border: 1px solid black;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#form .button:hover {
+    background-color: #BDC3C7;
+}
