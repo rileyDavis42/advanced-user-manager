@@ -1,23 +1,19 @@
 html, body {
     font-family: sans-serif;
-    padding: 5px;
-    margin: 0;
     background-color: #D7CEC7;
 }
 
 .home {
     font-size: 30px;
-    color: #000;
 }
 
 #userListing {
     display: block;
-    background-color: #fff;
 
     width: 50%;
     min-height: 100%;
 
-    margin: auto;
+    margin: 5px auto;
     padding: 10px;
     border-radius: 20px;
 
@@ -34,13 +30,8 @@ html, body {
 
 .user, .add {
     width: 325px;
-    height: 100px;
+    margin: 5px;
 
-    padding: 10px;
-    margin: 10px 0;
-
-    border: 2px dashed #808080;
-    background-color: #ECF0F1;
     transition: background-color 200ms;
 
     font-family: 'Poppins', sans-serif;
@@ -63,37 +54,23 @@ html, body {
     justify-content: space-between;
 }
 
+.userDetail {
+    margin: 5px;
+    display: block;
+}
+
 .userAction {
     text-align: right;
-    position: absolute;
-
-    margin: 5px;
-    bottom: 0;
-    right: 0;
 }
 
-.userAction i {
+.userAction button {
     color: #fff;
 
-    padding: 6px;
     margin: 0 5px;
     font-size: 15px;
-
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.fa-trash {
-    background-color: #F04141;
-}
-
-.fa-pen {
-    background-color: #0CD1E8;
 }
 
 .add {
-    background-color: #fafeff;
-
     cursor: pointer;
     text-decoration: none;
     text-align: center;
@@ -106,13 +83,9 @@ html, body {
     background-color: #BDC3C7;
 }
 
-.add:hover {
-    background-color: #ECF0F1;
-}
-
 #form {
     background-color: #ECF0F1;
-    margin: auto;
+    margin: 5px auto;
     padding: 10px;
 
     border-radius: 20px;

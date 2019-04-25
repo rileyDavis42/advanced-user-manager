@@ -1,22 +1,40 @@
 html
     include includes/header
-    div#userListing
-        h1 User Listing
-        p#successMessage=successMessage
-        p#errorMessage=errorMessage
-        each user, index in users
-            div.user
-                div.userHead
-                    h4=user.firstname + " " + user.lastname
-                div.userDetails
-                    p='User ID: ' + user.id
-                    p='Email: ' + user.email
-                    p='Age: ' + user.age
-                form(method="post").userAction
-                    input(type="hidden", name="username", value=user.id)
-                    i(class='fas fa-trash', onclick='deleteUser(this)')
-                    i(class='fas fa-pen', onclick='editUser(this)')
-        if users.length < 1
-            p No users
-        a(href='/addUser').add
-            h3 + Add User
+    div#userListing.card
+        div.card-body
+            h3.card-title User Listing
+            h6.card-subtitle.text-muted="Total Users: " + users.length
+            p#successMessage=successMessage
+            p#errorMessage=errorMessage
+
+            form.input-group(method="get", action="")
+                input.form-control(placeholder="Search for user...", name="search", value=search, style="width: 40%")
+                select.custom-select(name="sort")
+                    option(value="firstname") First Name
+                    option(value="lastname") Last Name
+                    option(value="age") Age
+                select.custom-select(name="direction")
+                    option(value="asc") Ascending
+                    option(value="desc") Descending
+                div.input-group-append
+                    button.btn.btn-primary Search
+
+            each user, index in users
+                div.card.user
+                    div.card-body
+                        div.card-title
+                            h4=user.firstname + " " + user.lastname
+                        div.card-text.user-details
+                            span.userDetail='User ID: ' + user.id
+                            span.userDetail='Email: ' + user.email
+                            span.userDetail='Age: ' + user.age
+                        form(method="post").userAction
+                            input(type="hidden", name="username", value=user.id)
+                            button.btn.btn-danger.fas.fa-trash(onclick='deleteUser(this)')
+                            button.btn.btn-info.fas.fa-pen(onclick='editUser(this)')
+            if users.length < 1
+                p No users
+            a(href='/addUser')
+                div.card.add
+                    div.card-body
+                        h4.card-title + Add User

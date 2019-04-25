@@ -18,10 +18,16 @@ let users = [];
 
 let newUsers = [];
 
-function getUsers() {
+function getUsers(search="", sort="lastname", direction="ASC") {
+    let params = " WHERE 1 = 1 ";
+    let sortQuery = ` ORDER BY ${sort} ${direction}`;
+    search = search.toLowerCase();
+    if (search && search.length > 0) {
+        params += `AND LOWER(firstname) LIKE '%${search}%' OR LOWER(lastname) LIKE '%${search}%'`;
+    }
     newUsers = new Promise((resolve, reject) => {
         users = [];
-        pool.query('SELECT * FROM users', (err, res) => {
+        pool.query('SELECT * FROM users' + params + sortQuery, (err, res) => {
             if (err) throw err;
             for (let i = 0; i < res.rows.length; i++) {
                 users.push(res.rows[i]);
@@ -42,12 +48,15 @@ let successMessage = '';
 let errorMessage = '';
 
 app.get('/', (req, res) => {
-    getUsers();
+    getUsers(req.query.search, req.query.sort, req.query.direction);
     newUsers.then(() => {
         res.render('index', {
             users: users,
             successMessage: successMessage,
-            errorMessage: errorMessage
+            errorMessage: errorMessage,
+            search: req.query.search,
+            sort: req.query.sort,
+            direction: req.query.direction,
         });
         successMessage = '';
         errorMessage = '';
@@ -61,6 +70,10 @@ app.get('/addUser', (req, res) => {
 
 app.get('/*.css/', (req, res) => {
     res.sendFile(path.join(__dirname, 'styles', req.url));
+});
+
+app.get('/*.png/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'img', req.url));
 });
 
 app.get('/*.js/', (req, res) => {

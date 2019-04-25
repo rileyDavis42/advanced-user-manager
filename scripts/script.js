@@ -6,6 +6,7 @@ function deleteUser(elem) {
 }
 
 function editUser(elem) {
+    console.log(elem);
     elem.parentElement.setAttribute('action', '/editUser');
     elem.parentElement.submit();
 }
